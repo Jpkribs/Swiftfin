@@ -192,6 +192,8 @@ internal enum L10n {
   internal static func latestWithString(_ p1: Any) -> String {
     return L10n.tr("Localizable", "latestWithString", String(describing: p1), fallback: "Latest %@")
   }
+  /// Letter
+  internal static let letter = L10n.tr("Localizable", "letter", fallback: "Letter")
   /// Library
   internal static let library = L10n.tr("Localizable", "library", fallback: "Library")
   /// Light

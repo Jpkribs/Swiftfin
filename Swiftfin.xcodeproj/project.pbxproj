@@ -11,9 +11,12 @@
 		091B5A8D268315D400D78B61 /* ServerDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B5A872683142E00D78B61 /* ServerDiscovery.swift */; };
 		4E5E48E52AB59806003F1B48 /* CustomizeViewsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5E48E42AB59806003F1B48 /* CustomizeViewsSettings.swift */; };
 		4E5E48E62AB59806003F1B48 /* CustomizeViewsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5E48E42AB59806003F1B48 /* CustomizeViewsSettings.swift */; };
+		4E844D9C2AB9569C00E059E5 /* ItemLetterFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E844D9B2AB9569C00E059E5 /* ItemLetterFilter.swift */; };
+		4E844D9D2AB9569C00E059E5 /* ItemLetterFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E844D9B2AB9569C00E059E5 /* ItemLetterFilter.swift */; };
+		4E844DA12AB95B4D00E059E5 /* FilterDrawerButtonSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E844DA02AB95B4D00E059E5 /* FilterDrawerButtonSelectorView.swift */; };
+		4E844DA22AB95B4D00E059E5 /* FilterDrawerButtonSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E844DA02AB95B4D00E059E5 /* FilterDrawerButtonSelectorView.swift */; };
 		4E8B34EA2AB91B6E0018F305 /* FilterDrawerSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B34E92AB91B6E0018F305 /* FilterDrawerSelection.swift */; };
 		4E8B34EB2AB91B6E0018F305 /* FilterDrawerSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B34E92AB91B6E0018F305 /* FilterDrawerSelection.swift */; };
-		4EB939662AB909A600E30FF1 /* FilterDrawerButtonSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB939652AB909A600E30FF1 /* FilterDrawerButtonSelectorView.swift */; };
 		531690E7267ABD79005D8AB9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531690E6267ABD79005D8AB9 /* HomeView.swift */; };
 		53192D5D265AA78A008A4215 /* DeviceProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53192D5C265AA78A008A4215 /* DeviceProfileBuilder.swift */; };
 		531AC8BF26750DE20091C7EB /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531AC8BE26750DE20091C7EB /* ImageView.swift */; };
@@ -776,8 +779,9 @@
 /* Begin PBXFileReference section */
 		091B5A872683142E00D78B61 /* ServerDiscovery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerDiscovery.swift; sourceTree = "<group>"; };
 		4E5E48E42AB59806003F1B48 /* CustomizeViewsSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeViewsSettings.swift; sourceTree = "<group>"; };
+		4E844D9B2AB9569C00E059E5 /* ItemLetterFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLetterFilter.swift; sourceTree = "<group>"; };
+		4E844DA02AB95B4D00E059E5 /* FilterDrawerButtonSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterDrawerButtonSelectorView.swift; sourceTree = "<group>"; };
 		4E8B34E92AB91B6E0018F305 /* FilterDrawerSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterDrawerSelection.swift; sourceTree = "<group>"; };
-		4EB939652AB909A600E30FF1 /* FilterDrawerButtonSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterDrawerButtonSelectorView.swift; sourceTree = "<group>"; };
 		531690E6267ABD79005D8AB9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		531690F9267AD6EC005D8AB9 /* PlainNavigationLinkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainNavigationLinkButton.swift; sourceTree = "<group>"; };
 		53192D5C265AA78A008A4215 /* DeviceProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceProfileBuilder.swift; sourceTree = "<group>"; };
@@ -1381,18 +1385,18 @@
 			path = ServerDiscovery;
 			sourceTree = "<group>";
 		};
-		4E5E48DA2AB58ED7003F1B48 /* FilterDrawerSettingsView */ = {
+		4E844D9E2AB95AA700E059E5 /* FilterDrawerSettingsView */ = {
 			isa = PBXGroup;
 			children = (
-				4E5E48DB2AB58F06003F1B48 /* Components */,
+				4E844D9F2AB95AB400E059E5 /* Components */,
 			);
 			path = FilterDrawerSettingsView;
 			sourceTree = "<group>";
 		};
-		4E5E48DB2AB58F06003F1B48 /* Components */ = {
+		4E844D9F2AB95AB400E059E5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				4EB939652AB909A600E30FF1 /* FilterDrawerButtonSelectorView.swift */,
+				4E844DA02AB95B4D00E059E5 /* FilterDrawerButtonSelectorView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1529,6 +1533,7 @@
 				E1092F4B29106F9F00163F57 /* GestureAction.swift */,
 				E19169CD272514760085832A /* HTTPScheme.swift */,
 				535870AC2669D8DD00D05A09 /* ItemFilters.swift */,
+				4E844D9B2AB9569C00E059E5 /* ItemLetterFilter.swift */,
 				E1C925F328875037002A7A66 /* ItemViewType.swift */,
 				E113133728BEADBA00930F75 /* LibraryParent.swift */,
 				E13F05EB28BC9000003499D2 /* LibraryViewType.swift */,
@@ -2725,7 +2730,7 @@
 				E15756332936851D00976E1F /* NativeVideoPlayerSettingsView.swift */,
 				6334175A287DDFB9000603CE /* QuickConnectSettingsView.swift */,
 				539B2DA4263BA5B8007FF1A4 /* SettingsView.swift */,
-				4E5E48DA2AB58ED7003F1B48 /* FilterDrawerSettingsView */,
+				4E844D9E2AB95AA700E059E5 /* FilterDrawerSettingsView */,
 				E1BDF2E7295148F400CC0294 /* VideoPlayerSettingsView */,
 			);
 			path = SettingsView;
@@ -3188,6 +3193,7 @@
 				E12CC1C928D132B800678D5D /* RecentlyAddedView.swift in Sources */,
 				E1937A3C288E54AD00CB80AA /* BaseItemDto+Images.swift in Sources */,
 				E18A17F0298C68B700C22F62 /* Overlay.swift in Sources */,
+				4E844DA22AB95B4D00E059E5 /* FilterDrawerButtonSelectorView.swift in Sources */,
 				E1A42E4A28CA6CCD00A14DCB /* CinematicItemSelector.swift in Sources */,
 				E154677A289AF48200087E35 /* CollectionItemContentView.swift in Sources */,
 				E1DABAFC2A270EE7008AC34A /* MediaSourcesCard.swift in Sources */,
@@ -3205,6 +3211,7 @@
 				E1DC981A296DD1CD00982F06 /* CinematicBackgroundView.swift in Sources */,
 				E1A1528B28FD22F600600579 /* TextPairView.swift in Sources */,
 				091B5A8D268315D400D78B61 /* ServerDiscovery.swift in Sources */,
+				4E844D9D2AB9569C00E059E5 /* ItemLetterFilter.swift in Sources */,
 				E1575E66293E77B5001665B1 /* Poster.swift in Sources */,
 				E18E021F2887492B0022598C /* InitialFailureView.swift in Sources */,
 				E1D3043D28D18CD400587289 /* CastAndCrewLibraryCoordinator.swift in Sources */,
@@ -3321,6 +3328,7 @@
 			files = (
 				E11245B428D97D5D00D8A977 /* BottomBarView.swift in Sources */,
 				E17FB55528C1250B00311DFE /* SimilarItemsHStack.swift in Sources */,
+				4E844DA12AB95B4D00E059E5 /* FilterDrawerButtonSelectorView.swift in Sources */,
 				5364F455266CA0DC0026ECBA /* BaseItemPerson.swift in Sources */,
 				E18845F526DD631E00B0C5B7 /* BaseItemDto+Poster.swift in Sources */,
 				E1B33ECF28EB6EA90073B0FD /* OverlayMenu.swift in Sources */,
@@ -3437,6 +3445,7 @@
 				E139CC1D28EC836F00688DE2 /* ChapterOverlay.swift in Sources */,
 				E168BD14289A4162001A6922 /* LatestInLibraryView.swift in Sources */,
 				E1E6C45029B104840064123F /* Button.swift in Sources */,
+				4E844D9C2AB9569C00E059E5 /* ItemLetterFilter.swift in Sources */,
 				E1E5D5492783CDD700692DFE /* VideoPlayerSettingsView.swift in Sources */,
 				E11245B728D97ED200D8A977 /* TopBarView.swift in Sources */,
 				E173DA5226D04AAF00CC4EB7 /* Color.swift in Sources */,
@@ -3460,7 +3469,6 @@
 				E1171A1928A2212600FA1AF5 /* QuickConnectView.swift in Sources */,
 				E1DC9819296DD1CD00982F06 /* CinematicBackgroundView.swift in Sources */,
 				E11CEB8D28999B4A003E74C7 /* Font.swift in Sources */,
-				4EB939662AB909A600E30FF1 /* FilterDrawerButtonSelectorView.swift in Sources */,
 				E139CC1F28EC83E400688DE2 /* Int.swift in Sources */,
 				E11895A9289383BC0042947B /* ScrollViewOffsetModifier.swift in Sources */,
 				E1DA656C28E78C1700592A73 /* MenuPosterHStackModel.swift in Sources */,
