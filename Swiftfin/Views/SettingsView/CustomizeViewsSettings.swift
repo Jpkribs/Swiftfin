@@ -28,6 +28,8 @@ struct CustomizeViewsSettings: View {
     var libraryFilterDrawerButtons
     @Default(.Customization.Filters.searchFilterDrawerButtons)
     var searchFilterDrawerButtons
+    @Default(.Customization.Filters.alphaPickerSelection)
+    var alphaPickerSelection
 
     @Default(.Customization.showPosterLabels)
     var showPosterLabels
@@ -84,6 +86,8 @@ struct CustomizeViewsSettings: View {
             }
 
             Section {
+
+                EnumPicker(title: L10n.alphaPickerTitle, selection: $alphaPickerSelection)
 
                 ChevronButton(title: L10n.library)
                 .onSelect {

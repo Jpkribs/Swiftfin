@@ -18,7 +18,10 @@ struct LibraryView: View {
 
     @Default(.Customization.Filters.libraryFilterDrawerButtons)
     private var filterDrawerButtonSelection
-    
+
+    @Default(.Customization.Filters.alphaPickerSelection)
+    private var alphaPickerOrientation
+
     @EnvironmentObject
     private var router: LibraryCoordinator.Router
 
@@ -51,11 +54,55 @@ struct LibraryView: View {
 
     @ViewBuilder
     private var libraryItemsView: some View {
-        PagingLibraryView(viewModel: viewModel)
-            .onSelect { item in
-                baseItemOnSelect(item)
+        if(alphaPickerOrientation == .disabled) {
+            PagingLibraryView(viewModel: viewModel)
+                .onSelect { item in
+                    baseItemOnSelect(item)
+                }
+                .ignoresSafeArea()
+        }
+        else {
+            if(alphaPickerOrientation == .right) {
+                HStack(spacing: 0) {
+                    PagingLibraryView(viewModel: viewModel)
+                        .onSelect { item in
+                            baseItemOnSelect(item)
+                        }
+                        .ignoresSafeArea()
+                    Spacer()
+                    GeometryReader { geometry in
+                        Color.clear
+                            .overlay(AlphaPickerView(viewModel: viewModel.filterViewModel))
+                            .frame(width: geometry.size.width * 0.5)
+                            .alignmentGuide(.leading)  { _ in
+                                geometry.size.width / 2 // Center it on the far Left
+                            }
+                    }
+                    .frame(width: 5)
+                    .ignoresSafeArea()
+                }
             }
-            .ignoresSafeArea()
+            else if(alphaPickerOrientation == .left) {
+                HStack(spacing: 0) {
+                    GeometryReader { geometry in
+                        Color.clear
+                            .overlay(AlphaPickerView(viewModel: viewModel.filterViewModel))
+                            .frame(width: geometry.size.width * 0.5)
+                            .alignmentGuide(.trailing)  { _ in
+                                -geometry.size.width / 2 // Center it on the far Right
+                            }
+                    }
+                    .frame(width: 5)
+                    .ignoresSafeArea()
+                    Spacer()
+                    PagingLibraryView(viewModel: viewModel)
+                        .onSelect { item in
+                            baseItemOnSelect(item)
+                        }
+                        .ignoresSafeArea()
+                }
+            }
+        }
     }
 
     var body: some View {

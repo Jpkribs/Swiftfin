@@ -74,6 +74,7 @@ extension Defaults.Keys {
         }
 
         enum Filters {
+            static let alphaPickerSelection: Key<AlphaPickerSelection> = .init("alphaPickerSelection", default: .disabled, suite: .generalSuite)
             static let libraryFilterDrawerButtons: Key<[FilterDrawerButtonSelection]> = .init(
                 "defaultLibraryFilterDrawerButtons",
                 default: FilterDrawerButtonSelection.defaultFilterDrawerButtons,

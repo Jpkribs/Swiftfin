@@ -28,6 +28,8 @@ internal enum L10n {
   internal static let allGenres = L10n.tr("Localizable", "allGenres", fallback: "All Genres")
   /// All Media
   internal static let allMedia = L10n.tr("Localizable", "allMedia", fallback: "All Media")
+  /// Lettered Scrollbar
+  internal static let alphaPickerTitle = L10n.tr("Localizable", "alphaPickerTitle", fallback: "Lettered Scrollbar")
   /// Appearance
   internal static let appearance = L10n.tr("Localizable", "appearance", fallback: "Appearance")
   /// App Icon
