@@ -25,6 +25,8 @@ struct LibraryView: View {
     @EnvironmentObject
     private var router: LibraryCoordinator.Router
 
+    @State private var showAlphaPicker = true
+    
     @ObservedObject
     var viewModel: LibraryViewModel
 
@@ -69,37 +71,38 @@ struct LibraryView: View {
                             baseItemOnSelect(item)
                         }
                         .ignoresSafeArea()
-                    Spacer()
-                    GeometryReader { geometry in
-                        Color.clear
-                            .overlay(AlphaPickerView(viewModel: viewModel.filterViewModel))
-                            .frame(width: geometry.size.width * 0.5)
-                            .alignmentGuide(.leading)  { _ in
-                                geometry.size.width / 2 // Center it on the far Left
+                        .frame(maxWidth: .infinity)
+                    if(showAlphaPicker)
+                    {
+                        AlphaPickerView(viewModel: viewModel.filterViewModel)
+                            .frame(width: 30)
+                            .ignoresSafeArea()
+                            .onAppear() {
+                                let availableHeight = UIScreen.main.bounds.height
+                                let requiredHeight = CGFloat(26) * 30
+                                
+                                showAlphaPicker = requiredHeight <= availableHeight
                             }
                     }
-                    .frame(width: 5)
-                    .ignoresSafeArea()
                 }
             }
             else if(alphaPickerOrientation == .left) {
                 HStack(spacing: 0) {
-                    GeometryReader { geometry in
-                        Color.clear
-                            .overlay(AlphaPickerView(viewModel: viewModel.filterViewModel))
-                            .frame(width: geometry.size.width * 0.5)
-                            .alignmentGuide(.trailing)  { _ in
-                                -geometry.size.width / 2 // Center it on the far Right
-                            }
-                    }
-                    .frame(width: 5)
-                    .ignoresSafeArea()
-                    Spacer()
+                    AlphaPickerView(viewModel: viewModel.filterViewModel)
+                        .frame(width: 30)
+                        .ignoresSafeArea()
+                        .onAppear() {
+                            let availableHeight = UIScreen.main.bounds.height
+                            let requiredHeight = CGFloat(26) * 30
+                            
+                            showAlphaPicker = requiredHeight <= availableHeight
+                        }
                     PagingLibraryView(viewModel: viewModel)
                         .onSelect { item in
                             baseItemOnSelect(item)
                         }
                         .ignoresSafeArea()
+                        .frame(maxWidth: .infinity)
                 }
             }
         }

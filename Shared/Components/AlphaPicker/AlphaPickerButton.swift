@@ -53,14 +53,12 @@ extension AlphaPickerView {
                     .frame(width: 15, height: 15)
                     .foregroundColor(activated ? Color(UIColor.white) : accentColor)
                     .opacity(1.0)
-                    .padding(.trailing, 15)
                     .padding(.vertical, 1)
                     .fixedSize(horizontal: true, vertical: true)
                     .background {
                         RoundedRectangle(cornerRadius: 5)
                             .frame(width: 20, height: 20)
                             .foregroundColor(activated ? accentColor.opacity(0.5) : Color(UIColor.clear).opacity(0.0))
-                            .padding(.trailing, 15)
                     }
             }
 #else

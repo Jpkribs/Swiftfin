@@ -18,11 +18,11 @@ enum AlphaPickerSelection: String, CaseIterable, Defaults.Serializable, Displaya
     var displayTitle: String {
         switch self {
         case .disabled:
-            return "Disabled"
+            return L10n.disabled
         case .left:
-            return "Left"
+            return L10n.left
         case .right:
-            return "Right"
+            return L10n.right
         }
     }
 }
