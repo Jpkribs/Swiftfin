@@ -13,6 +13,7 @@ enum FilterDrawerButtonSelection: String, CaseIterable, Defaults.Serializable, D
 
     case filters
     case genres
+    case nameStartsWith
     case order
     case sort
 
@@ -22,6 +23,8 @@ enum FilterDrawerButtonSelection: String, CaseIterable, Defaults.Serializable, D
             return L10n.filters
         case .genres:
             return L10n.genres
+        case .nameStartsWith:
+            return L10n.letter
         case .order:
             return L10n.order
         case .sort:
@@ -39,6 +42,8 @@ enum FilterDrawerButtonSelection: String, CaseIterable, Defaults.Serializable, D
             return \.filters
         case .genres:
             return \.genres
+        case .nameStartsWith:
+            return \.nameStartsWith
         case .order:
             return \.sortOrder
         case .sort:
@@ -50,7 +55,7 @@ enum FilterDrawerButtonSelection: String, CaseIterable, Defaults.Serializable, D
         switch self {
         case .filters, .genres:
             return .multi
-        case .order, .sort:
+        case .nameStartsWith, .order, .sort:
             return .single
         }
     }
@@ -60,6 +65,8 @@ enum FilterDrawerButtonSelection: String, CaseIterable, Defaults.Serializable, D
         case .filters:
             return []
         case .genres:
+            return []
+        case .nameStartsWith:
             return []
         case .order:
             return [APISortOrder.ascending.filter]
@@ -74,6 +81,8 @@ enum FilterDrawerButtonSelection: String, CaseIterable, Defaults.Serializable, D
             return activeFilters.filters != self.itemFilterDefault
         case .genres:
             return activeFilters.genres != self.itemFilterDefault
+        case .nameStartsWith:
+            return activeFilters.nameStartsWith != self.itemFilterDefault
         case .order:
             return activeFilters.sortOrder != self.itemFilterDefault
         case .sort:
@@ -85,6 +94,7 @@ enum FilterDrawerButtonSelection: String, CaseIterable, Defaults.Serializable, D
         [
             .filters,
             .genres,
+            .nameStartsWith,
             .order,
             .sort,
         ]

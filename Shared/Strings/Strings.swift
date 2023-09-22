@@ -28,6 +28,8 @@ internal enum L10n {
   internal static let allGenres = L10n.tr("Localizable", "allGenres", fallback: "All Genres")
   /// All Media
   internal static let allMedia = L10n.tr("Localizable", "allMedia", fallback: "All Media")
+  /// Lettered Scrollbar
+  internal static let alphaPickerTitle = L10n.tr("Localizable", "alphaPickerTitle", fallback: "Lettered Scrollbar")
   /// Appearance
   internal static let appearance = L10n.tr("Localizable", "appearance", fallback: "Appearance")
   /// App Icon
@@ -114,6 +116,8 @@ internal enum L10n {
   internal static let delivery = L10n.tr("Localizable", "delivery", fallback: "Delivery")
   /// DIRECTOR
   internal static let director = L10n.tr("Localizable", "director", fallback: "DIRECTOR")
+  /// Disabled
+  internal static let disabled = L10n.tr("Localizable", "disabled", fallback: "Disabled")
   /// Discovered Servers
   internal static let discoveredServers = L10n.tr("Localizable", "discoveredServers", fallback: "Discovered Servers")
   /// Dismiss
@@ -192,6 +196,10 @@ internal enum L10n {
   internal static func latestWithString(_ p1: Any) -> String {
     return L10n.tr("Localizable", "latestWithString", String(describing: p1), fallback: "Latest %@")
   }
+  /// Left
+  internal static let `left` = L10n.tr("Localizable", "left", fallback: "Left")
+  /// Letter
+  internal static let letter = L10n.tr("Localizable", "letter", fallback: "Letter")
   /// Library
   internal static let library = L10n.tr("Localizable", "library", fallback: "Library")
   /// Light
@@ -380,6 +388,8 @@ internal enum L10n {
   internal static let resume5SecondOffset = L10n.tr("Localizable", "resume5SecondOffset", fallback: "Resume 5 Second Offset")
   /// Retry
   internal static let retry = L10n.tr("Localizable", "retry", fallback: "Retry")
+  /// Right
+  internal static let `right` = L10n.tr("Localizable", "right", fallback: "Right")
   /// Runtime
   internal static let runtime = L10n.tr("Localizable", "runtime", fallback: "Runtime")
   /// Search

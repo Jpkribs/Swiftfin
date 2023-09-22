@@ -88,6 +88,7 @@ final class SearchViewModel: ViewModel {
         keyPath: ReferenceWritableKeyPath<SearchViewModel, [BaseItemDto]>
     ) {
         let genreIDs = filters.genres.compactMap(\.id)
+        let nameStartsWith = filters.nameStartsWith.compactMap(\.id).first
         let sortBy = filters.sortBy.map(\.filterName)
         let sortOrder = filters.sortOrder.map { SortOrder(rawValue: $0.filterName) ?? .ascending }
         let itemFilters: [ItemFilter] = filters.filters.compactMap { .init(rawValue: $0.filterName) }
@@ -104,6 +105,7 @@ final class SearchViewModel: ViewModel {
                 filters: itemFilters,
                 sortBy: sortBy,
                 enableUserData: true,
+                nameStartsWith: nameStartsWith,
                 genreIDs: genreIDs,
                 enableImages: true
             )

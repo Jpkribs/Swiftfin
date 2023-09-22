@@ -29,6 +29,9 @@ struct CustomizeViewsSettings: View {
     @Default(.Customization.Filters.searchFilterDrawerButtons)
     var searchFilterDrawerButtons
 
+    @Default(.Customization.Filters.alphaPickerSelection)
+    var alphaPickerSelection
+
     @Default(.Customization.showPosterLabels)
     var showPosterLabels
     @Default(.Customization.nextUpPosterType)
@@ -85,15 +88,17 @@ struct CustomizeViewsSettings: View {
 
             Section {
 
+                EnumPicker(title: L10n.alphaPickerTitle, selection: $alphaPickerSelection)
+
                 ChevronButton(title: L10n.library)
-                    .onSelect {
-                        router.route(to: \.filterDrawerButtonSelector, $libraryFilterDrawerButtons)
-                    }
+                .onSelect {
+                router.route(to: \.filterDrawerButtonSelector, $libraryFilterDrawerButtons)
+                }
 
                 ChevronButton(title: L10n.search)
-                    .onSelect {
-                        router.route(to: \.filterDrawerButtonSelector, $searchFilterDrawerButtons)
-                    }
+                .onSelect {
+                router.route(to: \.filterDrawerButtonSelector, $searchFilterDrawerButtons)
+                }
 
             } header: {
                 L10n.filters.text

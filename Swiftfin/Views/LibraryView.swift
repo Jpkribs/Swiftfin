@@ -19,9 +19,14 @@ struct LibraryView: View {
     @Default(.Customization.Filters.libraryFilterDrawerButtons)
     private var filterDrawerButtonSelection
 
+    @Default(.Customization.Filters.alphaPickerSelection)
+    private var alphaPickerOrientation
+
     @EnvironmentObject
     private var router: LibraryCoordinator.Router
 
+    @State private var showAlphaPicker = true
+    
     @ObservedObject
     var viewModel: LibraryViewModel
 
@@ -51,11 +56,56 @@ struct LibraryView: View {
 
     @ViewBuilder
     private var libraryItemsView: some View {
-        PagingLibraryView(viewModel: viewModel)
-            .onSelect { item in
-                baseItemOnSelect(item)
+        if(alphaPickerOrientation == .disabled) {
+            PagingLibraryView(viewModel: viewModel)
+                .onSelect { item in
+                    baseItemOnSelect(item)
+                }
+                .ignoresSafeArea()
+        }
+        else {
+            if(alphaPickerOrientation == .right) {
+                HStack(spacing: 0) {
+                    PagingLibraryView(viewModel: viewModel)
+                        .onSelect { item in
+                            baseItemOnSelect(item)
+                        }
+                        .ignoresSafeArea()
+                        .frame(maxWidth: .infinity)
+                    if(showAlphaPicker)
+                    {
+                        AlphaPickerView(viewModel: viewModel.filterViewModel)
+                            .frame(width: 30)
+                            .ignoresSafeArea()
+                            .onAppear() {
+                                let availableHeight = UIScreen.main.bounds.height
+                                let requiredHeight = CGFloat(26) * 30
+                                
+                                showAlphaPicker = requiredHeight <= availableHeight
+                            }
+                    }
+                }
             }
-            .ignoresSafeArea()
+            else if(alphaPickerOrientation == .left) {
+                HStack(spacing: 0) {
+                    AlphaPickerView(viewModel: viewModel.filterViewModel)
+                        .frame(width: 30)
+                        .ignoresSafeArea()
+                        .onAppear() {
+                            let availableHeight = UIScreen.main.bounds.height
+                            let requiredHeight = CGFloat(26) * 30
+                            
+                            showAlphaPicker = requiredHeight <= availableHeight
+                        }
+                    PagingLibraryView(viewModel: viewModel)
+                        .onSelect { item in
+                            baseItemOnSelect(item)
+                        }
+                        .ignoresSafeArea()
+                        .frame(maxWidth: .infinity)
+                }
+            }
+        }
     }
 
     var body: some View {

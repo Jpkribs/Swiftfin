@@ -99,6 +99,7 @@ final class LibraryViewModel: PagingLibraryViewModel {
         }
 
         let genreIDs = filters.genres.compactMap(\.id)
+        let nameStartsWith = filters.nameStartsWith.compactMap(\.id).first
         let sortBy: [String] = filters.sortBy.map(\.filterName).appending("IsFolder")
         let sortOrder = filters.sortOrder.map { SortOrder(rawValue: $0.filterName) ?? .ascending }
         let itemFilters: [ItemFilter] = filters.filters.compactMap { .init(rawValue: $0.filterName) }
@@ -122,6 +123,7 @@ final class LibraryViewModel: PagingLibraryViewModel {
                 sortBy: sortBy,
                 enableUserData: true,
                 personIDs: personIDs,
+                nameStartsWith: nameStartsWith,
                 studioIDs: studioIDs,
                 genreIDs: genreIDs,
                 enableImages: true
@@ -131,6 +133,7 @@ final class LibraryViewModel: PagingLibraryViewModel {
 
             guard let items = response.value.items, !items.isEmpty else {
                 self.hasNextPage = false
+                self.isLoading = nameStartsWith.isNil
                 return
             }
 
